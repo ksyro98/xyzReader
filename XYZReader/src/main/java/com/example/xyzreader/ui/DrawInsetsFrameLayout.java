@@ -51,6 +51,7 @@ public class DrawInsetsFrameLayout extends FrameLayout {
         init(context, attrs, defStyle);
     }
 
+
     private void init(Context context, AttributeSet attrs, int defStyle) {
         final TypedArray a = context.obtainStyledAttributes(attrs,
                 R.styleable.DrawInsetsFrameLayout, defStyle, 0);

@@ -163,6 +163,7 @@ public class ArticleListActivity extends ActionBarActivity implements
             return vh;
         }
 
+
         private Date parsePublishedDate() {
             try {
                 String date = mCursor.getString(ArticleLoader.Query.PUBLISHED_DATE);

@@ -200,6 +200,7 @@ public class ArticleDetailFragment extends Fragment implements
         }
     }
 
+
     @SuppressLint("NewApi")
     private void bindViews() {
         if (mRootView == null) {

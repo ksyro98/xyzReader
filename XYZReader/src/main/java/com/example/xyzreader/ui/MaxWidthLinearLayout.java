@@ -36,6 +36,7 @@ public class MaxWidthLinearLayout extends LinearLayout {
         init(context, null, 0, 0);
     }
 
+
     public MaxWidthLinearLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0, 0);

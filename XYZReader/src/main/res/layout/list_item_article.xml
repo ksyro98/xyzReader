@@ -23,6 +23,7 @@
             android:paddingStart="2dp"
             android:transitionName="@string/transition_name"/>
 
+
         <TextView
             android:id="@+id/article_title"
             android:layout_width="match_parent"
