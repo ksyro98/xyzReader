@@ -145,7 +145,7 @@
                         android:id="@+id/toolbar"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/toolbar_height"
-                        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                        android:elevation="8dp"
                         app:layout_collapseMode="pin">
 
                         <ImageButton
@@ -175,19 +175,11 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <!--<TextView-->
-                    <!--android:id="@+id/title"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:padding="16dp"-->
-                    <!--android:textAppearance="@style/TextAppearance.AppCompat.Headline"-->
-                    <!--android:textColor="@android:color/white"-->
-                    <!--android:background="@color/theme_primary"/>-->
-
                 <TextView
                     android:id="@+id/byline"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
                     android:textAppearance="@style/TextAppearance.AppCompat.Headline" />
 
                 <TextView

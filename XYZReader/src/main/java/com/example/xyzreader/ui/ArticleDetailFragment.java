@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.v4.app.ShareCompat;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
@@ -128,20 +130,7 @@ public class ArticleDetailFragment extends Fragment implements
             }
         });
 
-
-        /*mScrollView = (ObservableScrollView) mRootView.findViewById(R.id.scrollview);
-        mScrollView.setCallbacks(new ObservableScrollView.Callbacks() {
-            @Override
-            public void onScrollChanged() {
-                mScrollY = mScrollView.getScrollY();
-                getActivityCast().onUpButtonFloorChanged(mItemId, ArticleDetailFragment.this);
-                mPhotoContainerView.setTranslationY((int) (mScrollY - mScrollY / PARALLAX_FACTOR));
-                updateStatusBar();
-            }
-        });*/
-
         mPhotoView = (ImageView) mRootView.findViewById(R.id.photo);
-        //mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
 
         mStatusBarColorDrawable = new ColorDrawable(0);
 
@@ -154,6 +143,8 @@ public class ArticleDetailFragment extends Fragment implements
                         .getIntent(), getString(R.string.action_share)));
             }
         });
+
+
 
         bindViews();
         updateStatusBar();
@@ -200,7 +191,6 @@ public class ArticleDetailFragment extends Fragment implements
         }
     }
 
-
     @SuppressLint("NewApi")
     private void bindViews() {
         if (mRootView == null) {
@@ -211,6 +201,7 @@ public class ArticleDetailFragment extends Fragment implements
         bylineView.setMovementMethod(new LinkMovementMethod());
         TextView bodyView = (TextView) mRootView.findViewById(R.id.body);
         Toolbar toolbar = (Toolbar) mRootView.findViewById(R.id.toolbar);
+
         ImageButton backImageButton = (ImageButton) mRootView.findViewById(R.id.back_image_button);
         backImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -231,16 +222,12 @@ public class ArticleDetailFragment extends Fragment implements
                                 publishedDate.getTime(),
                                 System.currentTimeMillis(), DateUtils.HOUR_IN_MILLIS,
                                 DateUtils.FORMAT_ABBREV_ALL).toString()
-                                + " by <font color='#ffffff'>"
-                                + mCursor.getString(ArticleLoader.Query.AUTHOR)
-                                + "</font>"));
+                                + mCursor.getString(ArticleLoader.Query.AUTHOR)));
 
             } else {
                 // If date is before 1902, just show the string
                 bylineView.setText(Html.fromHtml(
-                        outputFormat.format(publishedDate) + " by <font color='#ffffff'>"
-                        + mCursor.getString(ArticleLoader.Query.AUTHOR)
-                                + "</font>"));
+                        outputFormat.format(publishedDate) + mCursor.getString(ArticleLoader.Query.AUTHOR)));
 
             }
             bodyView.setText(Html.fromHtml(mCursor.getString(ArticleLoader.Query.BODY).replaceAll("(\r\n|\n)", "<br />")));
@@ -253,8 +240,6 @@ public class ArticleDetailFragment extends Fragment implements
                                 Palette p = (new Palette.Builder(bitmap)).generate();
                                 mMutedColor = p.getDarkMutedColor(0xFF333333);
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
-                                //mRootView.findViewById(R.id.meta_bar)
-                                  //      .setBackgroundColor(mMutedColor);
                                 updateStatusBar();
                             }
                         }
@@ -264,7 +249,8 @@ public class ArticleDetailFragment extends Fragment implements
 
                         }
                     });
-        } else {
+        }
+        else {
             mRootView.setVisibility(View.GONE);
             toolbar.setTitle("N/A");
             bylineView.setText("N/A" );
