@@ -31,13 +31,14 @@
                         android:layout_height="wrap_content"
                         android:scaleType="centerCrop"
                         android:fitsSystemWindows="true"
+                        android:transitionName="@string/transition_name"
                         app:layout_collapseMode="parallax"/>
 
                     <android.support.v7.widget.Toolbar
                         android:id="@+id/toolbar"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/toolbar_height"
-                        android:elevation="8dp"
+                        android:elevation="4dp"
                         app:layout_collapseMode="pin">
 
                         <ImageButton
@@ -88,7 +89,6 @@
     </android.support.design.widget.CoordinatorLayout>
 
     <android.support.design.widget.FloatingActionButton android:id="@+id/share_fab"
-        android:background="@drawable/add_fab_background"
         android:layout_gravity="bottom|end"
         android:layout_marginEnd="@dimen/fab_margin"
         android:layout_marginBottom="@dimen/fab_margin"

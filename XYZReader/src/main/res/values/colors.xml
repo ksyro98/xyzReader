@@ -29,4 +29,5 @@
     <color name="theme_accent">#22FDC3</color>
     <color name="card_background">#fbfae2</color>
     <color name="background">#fafafa</color>
+    <color name="black">#000000</color>
 </resources>
